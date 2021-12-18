@@ -1,0 +1,72 @@
+{% extends 'general/base.html' %}
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+
+{# CSS Bootstrap #}
+{% bootstrap_css %}
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+
+{# Archivos #}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <div class="formulario">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- {{ form.as_p }} -->
+                    <div class="form-group">
+                        <label for="codigo" class="txt_negrita">Codigo</label>
+                        {{ form.codigo|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion" class="txt_negrita">Descripcion</label>
+                        {{ form.descripcion|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="costo_unitario" class="txt_negrita">P. Costo</label>
+                        {{ form.costo_unitario|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="precioventa" class="txt_negrita">P. Venta</label>
+                        {{ form.precioventa|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="idcategoria" class="txt_negrita">Categoria</label>
+                        {{ form.idcategoria|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="descuento" class="txt_negrita">P. Venta</label>
+                        {{ form.descuento|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="importeiva" class="txt_negrita">I.V.A</label>
+                        {{ form.importeiva|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="stock" class="txt_negrita">Stock</label>
+                        {{ form.stock|add_class:"form-control" }}
+                    </div>
+                    <div class="form-group">
+                        <label for="img" class="txt_negrita">Imagen</label>
+                        {{ form.img|add_class:"form-control mb-3" }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                    <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+{# JS y jQuery Bootstrap #}
+{% bootstrap_javascript jquery='full' %}
+
+{% endblock %}

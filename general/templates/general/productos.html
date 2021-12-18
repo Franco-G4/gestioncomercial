@@ -1,0 +1,54 @@
+{% extends 'general/base.html' %}
+
+ {% load static %}
+
+ {% block content %}
+ <!-- ----------------------------------------------------------------------------------------------- -->
+ <!-- div cuadro busqueda -->
+ <!-- ----------------------------------------------------------------------------------------------- -->
+  <div class="container">
+    <a href="{% url 'crear' %}" class="btn btn-info">Crear</a>
+   <div class="row">
+     <div class="col">
+      <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col col-md-3">Codigo</th>
+                        <th scope="col col-md-3">Descripcion</th>
+                        <th scope="col col-md-3">P. Unitario</th>
+                        <th scope="col col-md-3">P. Venta</th>
+                        <th scope="col col-md-3">Categoria</th>
+                        <th scope="col col-md-3">Descuento</th>
+                        <th scope="col col-md-3">I.V.A</th>
+                        <th scope="col col-md-3">Stock</th>
+                        <th colspan="" scope="col col-md-6">Acción</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                     {% for Productos in object_list %}
+                    <tr>
+          
+                        <th>{{ Productos.codigo }}</th>
+                        <td>{{ Productos.descripcion }}</td>
+                         <td>{{ Productos.costo_unitario }}</td> 
+                         <th>{{ Productos.precioventa }}</th>
+                         <td>{{ Productos.idcategoria }}</td>
+                          <td>{{ Productos.descuento }}</td> 
+                          <th>{{ Productos.importeiva }}</th>
+                          <td>{{ Productos.stock }}</td>
+                        <td><a href="#" class="btn btn-info">Editar</a>
+                            <a href="#" class="btn btn-danger">Eliminar</a></td>
+                    
+                    {% endfor %}
+                       </tr>  
+               </tbody>
+            </table>
+        </div>
+    </div>
+     </div>
+   </div>
+ </div>
+
+ {% endblock %}
